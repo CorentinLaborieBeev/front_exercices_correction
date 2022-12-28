@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Exercice 4</title>
+  <link rel="stylesheet" href="style/style.css">
+  <script src="bonus.js"></script>
+  <script src="script/ex_04.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="exercice">
+      <header>
+          4
+      </header>
+      <section>
+        <p>
+          Display in the white box the last 42 caracters writen on the keyboard while on this webpage.
+        </p>
+      </section>
+      <footer>
+        <div>
+        </div>
+      </footer>
+    </div>
+    <nav>
+      <a href="ex_03.html" class="btn prev">
+        &larr; Previous
+      </a>
+      <a href="ex_05.html" class="btn next">
+        Next &rarr;
+      </a>
+    </nav>
+
+  </div>
+    <!-- Write your code inside the next script tag -->
+
+    <script>
+      let text = document.getElementsByTagName("footer")[0].children[0].innerText.split("");
+      document.addEventListener('keydown', (event) => {
+        var name = event.key;
+        var code = event.code;
+        if (text.length === 42){
+          text.shift();
+          text.push(name);
+        } else {
+          text.push(name);
+        }
+        document.getElementsByTagName("footer")[0].children[0].innerText = text.join("");
+      }, false);
+    </script>
+</body>
+</html>
